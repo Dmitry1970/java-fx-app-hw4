@@ -13,22 +13,22 @@ public class Controller {
     private TextField msgField;
 
     public void clickCheckButton(ActionEvent actionEvent) {
+        final String message = msgField.getText();
+        sendMessage();
         msgField.clear();
         msgField.requestFocus();
 
     }
 
-    private boolean ifWantToWriteAgain() {
-
-        final Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Введите сообщение",
-                new ButtonType("Да", ButtonBar.ButtonData.YES),
-                new ButtonType("Нет", ButtonBar.ButtonData.NO));
-
-        final ButtonType answer = alert.showAndWait().get();
-        return answer.getButtonData() == ButtonBar.ButtonData.YES;
+    public void sendMessage() {
+        historyArea.appendText(msgField.getText() + "\n");
 
     }
-
-    public void sendMessage
-
 }
+
+
+
+
+
+
+
